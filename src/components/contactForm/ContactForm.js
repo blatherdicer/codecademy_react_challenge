@@ -16,6 +16,9 @@ export const ContactForm = (props) => {
     handleSubmit,
     isDuplicate} = props;
 
+
+  // TO DO: Fix phone number validation
+
   return (
     <form onSubmit={handleSubmit}>  
       <label htmlFor="name">Contact Name:

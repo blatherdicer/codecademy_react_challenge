@@ -14,7 +14,12 @@ function App() {
     phoneNumber: '123 343434',
     email: 'test@user.com'
   }]);
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([{
+    title: 'Test Appt',
+    contact: 'Test User',
+    date: '1 Jun 2023',
+    time: '8:00am'
+  }]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -35,14 +40,15 @@ function App() {
     })
   };
 
-  const addAppointment = (title, contact, apptDateTime) => {
-    if (!(title && contact && apptDateTime)) {
+  const addAppointment = (title, contact, date, time) => {
+    if (!(title && contact && date && time)) {
       throw new Error('Add Appointment: Required parameters missing...')
     };
     const apptToAdd = {
       title: title,
       contact: contact,
-      apptDateTime: apptDateTime
+      date: date,
+      time: time
     };
     setAppointments((prevAppts) => {
       return ([...prevAppts, apptToAdd])

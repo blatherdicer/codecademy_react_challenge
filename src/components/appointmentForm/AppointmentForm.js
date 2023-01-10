@@ -20,6 +20,6 @@ export const AppointmentForm = ({
   };
 
   return (
-    AppointmentForm
+    <p>AppointmentForm</p>
   );
 };
