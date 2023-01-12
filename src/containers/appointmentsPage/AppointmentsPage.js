@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TileList } from "../../components/tileList/TileList";
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 
@@ -7,26 +7,10 @@ export const AppointmentsPage = (props) => {
   const {appointments, contacts, addAppointment} = props;
 
   const [title, setTitle] = useState("");
-  const [contact, setContact] = useState("");
+  const [contact, setContact] = useState(contacts[0].name);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
-  const updateTitle = ({ target }) => {
-    setTitle(target.value);
-  };
-
-  const updateContact = ({target}) => {
-    setContact(target.value);
-  };
-
-  const updateDate = ({target}) => {
-    setDate(target.value);
-  };
-  
-  const updateTime = ({target}) => {
-    setTime(target.value);
-  };
-  
   const handleSubmit = (e) => {
     e.preventDefault();
       addAppointment(title, contact, date, time);
@@ -43,13 +27,13 @@ export const AppointmentsPage = (props) => {
         <h2>Add Appointment</h2>
         <AppointmentForm 
           title={title}
-          setTitle={updateTitle}
+          setTitle={setTitle}
           contact={contact}
-          setContact={updateContact}
+          setContact={setContact}
           date={date}
-          setDate={updateDate}
+          setDate={setDate}
           time={time}
-          setTime={updateTime}
+          setTime={setTime}
           contacts={contacts}
           handleSubmit={handleSubmit}
         />

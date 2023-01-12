@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const ContactPicker = (props) => {
 
-  const { id, contact, contacts, onChange } = props;
+  const { id, contact, contacts, setContact } = props;
 
   return (
-    <select id={id} value={contacts.name} onChange={onChange} required>
+    <select id={id} value={contact} onChange={(e) => setContact(e.target.value)} required>
     {contacts.map((eachContact,i) => 
       <option 
       key={i} 
       value={eachContact.name}
-      selected={(eachContact.name === contact) ? true : false}
       >
       {eachContact.name}
       </option>)}
