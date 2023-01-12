@@ -4,7 +4,7 @@ export const ContactForm = (props) => {
 
   const errorFieldStyle = {border: "1px solid red", backgroundColor: "pink"};
   const errorMsgStyle = {color: "red", fontSize: "smaller"};
-  const validPhone = "{+64}\d{9}[0-9]";
+  const validPhone = "[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}";
   
   const { 
     name,
@@ -17,7 +17,6 @@ export const ContactForm = (props) => {
     isDuplicate} = props;
 
 
-  // TO DO: Fix phone number validation
 
   return (
     <form onSubmit={handleSubmit}>  
