@@ -4,7 +4,6 @@ export const ContactForm = (props) => {
 
   const errorFieldStyle = {border: "1px solid red", backgroundColor: "pink"};
   const errorMsgStyle = {color: "red", fontSize: "smaller"};
-  const validPhone = "[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}";
   
   const { 
     name,
@@ -15,8 +14,6 @@ export const ContactForm = (props) => {
     setEmail,
     handleSubmit,
     isDuplicate} = props;
-
-
 
   return (
     <form onSubmit={handleSubmit}>  
@@ -36,7 +33,7 @@ export const ContactForm = (props) => {
         id="phone" 
         value={phone} 
         onChange={setPhone} 
-        pattern={validPhone}
+        pattern="^02[0-2,6-9](\s|-|)\d{3,4}(\s|-|)\d{3,4}$"
         required />
       <label htmlFor="email">Contact Email:</label>
       <input 
